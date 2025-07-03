@@ -32,8 +32,7 @@ credit-risk-multiclass/
 │   ├── reports/               # Generated reports
 │   └── metrics/               # Performance metrics
 ├── config/                  # Configuration files
-├── tests/                   # Unit tests
-
+└── tests/                   # Unit tests
 
 ##  Key Features
 
