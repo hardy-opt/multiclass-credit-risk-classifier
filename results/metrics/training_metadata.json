@@ -1,0 +1,281 @@
+{
+  "training_date": "2025-07-03T17:30:13.342640",
+  "config": {
+    "data": {
+      "raw_data_path": "data/raw/",
+      "processed_data_path": "data/processed/",
+      "external_data_path": "data/external/",
+      "uci_dataset_id": 144,
+      "test_size": 0.2,
+      "random_state": 42,
+      "stratify": true
+    },
+    "risk_categories": {
+      "num_classes": 5,
+      "class_names": {
+        "0": "Very Low Risk",
+        "1": "Low Risk",
+        "2": "Medium Risk",
+        "3": "High Risk",
+        "4": "Very High Risk"
+      },
+      "categorization_method": "probability_based",
+      "cost_matrix": {
+        "very_low": [
+          0,
+          1,
+          3,
+          7,
+          10
+        ],
+        "low": [
+          1,
+          0,
+          2,
+          5,
+          8
+        ],
+        "medium": [
+          2,
+          1,
+          0,
+          3,
+          6
+        ],
+        "high": [
+          5,
+          3,
+          2,
+          0,
+          2
+        ],
+        "very_high": [
+          10,
+          8,
+          6,
+          3,
+          0
+        ]
+      }
+    },
+    "preprocessing": {
+      "scaling_method": "standard",
+      "categorical_encoding": "target",
+      "feature_selection": {
+        "enabled": true,
+        "method": "mutual_info",
+        "k_best": 15
+      },
+      "resampling": {
+        "enabled": true,
+        "method": "smote"
+      }
+    },
+    "models": {
+      "logistic_regression": {
+        "enabled": true,
+        "params": {
+          "penalty": "elasticnet",
+          "l1_ratio": 0.5,
+          "C": 1.0,
+          "class_weight": "balanced",
+          "solver": "saga",
+          "max_iter": 1000,
+          "multi_class": "ovr"
+        }
+      },
+      "xgboost": {
+        "enabled": true,
+        "params": {
+          "objective": "multi:softprob",
+          "num_class": 5,
+          "max_depth": 6,
+          "learning_rate": 0.1,
+          "n_estimators": 100,
+          "subsample": 0.8,
+          "colsample_bytree": 0.8,
+          "eval_metric": "mlogloss",
+          "tree_method": "hist"
+        }
+      },
+      "random_forest": {
+        "enabled": true,
+        "params": {
+          "n_estimators": 100,
+          "max_depth": 10,
+          "min_samples_split": 5,
+          "min_samples_leaf": 2,
+          "class_weight": "balanced",
+          "bootstrap": true,
+          "oob_score": true
+        }
+      },
+      "ensemble": {
+        "enabled": true,
+        "method": "voting",
+        "voting_type": "soft"
+      }
+    },
+    "training": {
+      "cv_folds": 5,
+      "cv_scoring": "f1_macro",
+      "hyperparameter_tuning": {
+        "enabled": true,
+        "method": "optuna",
+        "n_trials": 100,
+        "timeout": 3600
+      },
+      "early_stopping": {
+        "enabled": true,
+        "rounds": 10
+      }
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "precision_macro",
+        "recall_macro",
+        "f1_macro",
+        "f1_weighted",
+        "roc_auc_ovr",
+        "cohen_kappa"
+      ],
+      "interpretability": {
+        "shap_enabled": true,
+        "lime_enabled": true,
+        "feature_importance": true,
+        "partial_dependence": true
+      }
+    },
+    "visualization": {
+      "figure_size": [
+        12,
+        8
+      ],
+      "dpi": 300,
+      "style": "seaborn-v0_8",
+      "color_palette": "Set2",
+      "plots": [
+        "confusion_matrix",
+        "classification_report",
+        "roc_curve",
+        "precision_recall_curve",
+        "feature_importance",
+        "shap_summary",
+        "risk_distribution"
+      ]
+    },
+    "output": {
+      "models_path": "results/models/",
+      "plots_path": "results/plots/",
+      "reports_path": "results/reports/",
+      "metrics_path": "results/metrics/",
+      "model_format": "pickle",
+      "report_formats": [
+        "html",
+        "pdf",
+        "json"
+      ]
+    },
+    "logging": {
+      "level": "INFO",
+      "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+      "file": "logs/credit_risk_assessment.log"
+    }
+  },
+  "models_trained": [],
+  "data_info": {
+    "shape": [
+      1000,
+      20
+    ],
+    "target_distribution": {
+      "1": 700,
+      "2": 300
+    },
+    "missing_values": {
+      "checking_account_status": 0,
+      "duration_months": 0,
+      "credit_history": 0,
+      "purpose": 0,
+      "credit_amount": 0,
+      "savings_account": 0,
+      "employment_since": 0,
+      "installment_rate": 0,
+      "personal_status_sex": 0,
+      "other_debtors": 0,
+      "residence_since": 0,
+      "property": 0,
+      "age_years": 0,
+      "other_installment_plans": 0,
+      "housing": 0,
+      "existing_credits": 0,
+      "job": 0,
+      "num_dependents": 0,
+      "telephone": 0,
+      "foreign_worker": 0
+    },
+    "data_types": {
+      "checking_account_status": "object",
+      "duration_months": "int64",
+      "credit_history": "object",
+      "purpose": "object",
+      "credit_amount": "int64",
+      "savings_account": "object",
+      "employment_since": "object",
+      "installment_rate": "int64",
+      "personal_status_sex": "object",
+      "other_debtors": "object",
+      "residence_since": "int64",
+      "property": "object",
+      "age_years": "int64",
+      "other_installment_plans": "object",
+      "housing": "object",
+      "existing_credits": "int64",
+      "job": "object",
+      "num_dependents": "int64",
+      "telephone": "object",
+      "foreign_worker": "object"
+    },
+    "numerical_features": [
+      "duration_months",
+      "credit_amount",
+      "installment_rate",
+      "residence_since",
+      "age_years",
+      "existing_credits",
+      "num_dependents"
+    ],
+    "categorical_features": [
+      "checking_account_status",
+      "credit_history",
+      "purpose",
+      "savings_account",
+      "employment_since",
+      "personal_status_sex",
+      "other_debtors",
+      "property",
+      "other_installment_plans",
+      "housing",
+      "job",
+      "telephone",
+      "foreign_worker"
+    ],
+    "target_names": {
+      "1": "Good Credit",
+      "2": "Bad Credit"
+    }
+  },
+  "risk_analysis": {
+    "total_samples": 0,
+    "distribution": {},
+    "percentages": {},
+    "class_names": {
+      "0": "Very Low Risk",
+      "1": "Low Risk",
+      "2": "Medium Risk",
+      "3": "High Risk",
+      "4": "Very High Risk"
+    }
+  }
+}
