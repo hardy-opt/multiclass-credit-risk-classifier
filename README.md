@@ -2,7 +2,7 @@
 
 A comprehensive machine learning project that transforms the classic German Credit dataset from binary classification to a sophisticated **multi-class credit risk assessment** system, categorizing loan applicants into 5 distinct risk categories using advanced techniques.
 
-## 🎯 Project Overview
+##  Project Overview
 
 This project extends the traditional binary good/bad credit classification into a nuanced 5-class risk assessment system:
 
@@ -12,7 +12,30 @@ This project extends the traditional binary good/bad credit classification into 
 - **Class 3 - High Risk**: Poor credit profile with significant concerns
 - **Class 4 - Very High Risk**: Critical credit profile with major red flags
 
-## 🚀 Key Features
+## 📁 Project Structure
+
+credit-risk-multiclass/
+├── data/                    # Data storage
+│   ├── raw/                   # Original UCI dataset
+│   ├── processed/             # Preprocessed data splits
+│   └── external/              # Additional data sources
+├── src/                     # Source code
+│   ├── data/                  # Data handling modules
+│   ├── models/                # ML model implementations
+│   ├── utils/                 # Utility functions
+│   └── training/              # Training orchestration
+├── notebooks/               # Jupyter notebooks for analysis
+├── scripts/                 # Execution scripts
+├── results/                 # Output results
+│   ├── models/                # Saved trained models
+│   ├── plots/                 # Visualizations
+│   ├── reports/               # Generated reports
+│   └── metrics/               # Performance metrics
+├── config/                  # Configuration files
+├── tests/                   # Unit tests
+
+
+##  Key Features
 
 ### Advanced Machine Learning Models
 - **Logistic Regression**: With L1/L2 regularization and feature selection
@@ -38,7 +61,7 @@ This project extends the traditional binary good/bad credit classification into 
 - Cross-validation with stratified sampling
 - Cost-aware evaluation metrics
 
-## 📊 Dataset Information
+##  Dataset Information
 
 **Source**: UCI Machine Learning Repository - German Credit Data  
 **Original Size**: 1,000 samples, 20 features  
@@ -52,7 +75,10 @@ This project extends the traditional binary good/bad credit classification into 
 - Personal demographics and housing situation
 - Existing credit obligations and guarantors
 
-## 🛠️ Installation & Setup
+
+
+<!-- 
+## Installation & Setup
 
 ### Prerequisites
 - Python 3.8+
@@ -347,4 +373,4 @@ For questions, issues, or contributions:
 
 ---
 
-**Made with ❤️ for better credit risk assessment**
+**Made with ❤️ for better credit risk assessment** -->
