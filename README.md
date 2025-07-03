@@ -12,28 +12,6 @@ This project extends the traditional binary good/bad credit classification into 
 - **Class 3 - High Risk**: Poor credit profile with significant concerns
 - **Class 4 - Very High Risk**: Critical credit profile with major red flags
 
-## 📁 Project Structure
-
-credit-risk-multiclass/
-├── data/                    # Data storage
-│   ├── raw/                   # Original UCI dataset
-│   ├── processed/             # Preprocessed data splits
-│   └── external/              # Additional data sources
-├── src/                     # Source code
-│   ├── data/                  # Data handling modules
-│   ├── models/                # ML model implementations
-│   ├── utils/                 # Utility functions
-│   └── training/              # Training orchestration
-├── notebooks/               # Jupyter notebooks for analysis
-├── scripts/                 # Execution scripts
-├── results/                 # Output results
-│   ├── models/                # Saved trained models
-│   ├── plots/                 # Visualizations
-│   ├── reports/               # Generated reports
-│   └── metrics/               # Performance metrics
-├── config/                  # Configuration files
-└── tests/                   # Unit tests
-
 ##  Key Features
 
 ### Advanced Machine Learning Models
